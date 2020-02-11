@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/add', 'ModifyBookController@add');
+//Route::get('/store', 'ModifyBookController@store');
+Route::get('info/{isbn}','BooksController@get_info_by_isbn');
