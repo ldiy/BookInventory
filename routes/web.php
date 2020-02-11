@@ -20,6 +20,7 @@ Route::get('user/{id}', function($id)
 });
 Route::get('/books', 'BooksController@index');
 Route::get('/books/create', 'BooksController@create');
+Route::get('/books/search', 'BooksController@search');
 Route::get('/books/{book}/edit', 'BooksController@edit');
 Route::get('/books/{book}', 'BooksController@show');
 

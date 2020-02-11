@@ -24,12 +24,21 @@ class BooksController extends Controller
     /**
      * Search for a book
      *
-     * @param $keyword
      * @return \Illuminate\Http\Response
      */
-    public function search($keyword)
+    public function search()
     {
+        $q = request('q');
 
+        $books = Book::where('title', 'LIKE', '%' . $q .'%')
+                        ->orWhere('series', 'LIKE', '%' . $q . '%')
+                        ->orWhere('isbn', 'LIKE', '%' . $q . '%')
+                        ->orWhere('author', 'LIKE', '%' . $q . '%')
+                        ->orWhere('publisher', 'LIKE', '%' . $q . '%')
+                        ->orderBy('title', 'asc')
+                        ->paginate(20);
+
+        return view('books.index', ['books' => $books]);
     }
 
 
