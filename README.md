@@ -1,3 +1,4 @@
-#BookInventory
-A webapp for manging all your books!\
+# BookInventory
+A webapp for managing all your books!
+
 Written in PHP with Laravel.
