@@ -13,10 +13,20 @@
     <title>Book Inventory</title>
 </head>
 <body>
-<nav class="navbar fixed-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <a class="navbar-brand">Book Inventory</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+            <a class="nav-link" href="{{url('/books')}}">Books </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/series')}}">Series</a>
+        </li>
+        @yield('navbar_item')
+    </ul>
     <form class="form-inline" action="{{url('/books/search')}}">
-        <input class="form-control mr-sm-2"  name="q" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2"  name="q" type="search" placeholder="Search books" aria-label="Search books">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>

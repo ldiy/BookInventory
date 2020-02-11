@@ -1,4 +1,9 @@
 @extends('layout')
+@section('navbar_item')
+    <li class="nav-item">
+        <a  style="color:green; " class="nav-link"href="{{url('/books/create')}}"><b>Add <i class="fas fa-plus"></i></b></a>
+    </li>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
