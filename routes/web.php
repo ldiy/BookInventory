@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/books');
 });
-Route::get('user/{id}', function($id)
+
+/*Route::get('user/{id}', function($id)
 {
     return 'User '.$id;
-});
+});*/
+
 
 /* Books */
 Route::get('/books', 'BooksController@index');

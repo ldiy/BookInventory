@@ -7,7 +7,7 @@
         <br>
         <p><b>ISBN: </b>{{$book->isbn}}</p>
         <p><b>Publisher: </b>{{$book->publisher}}</p>
-        <p><b>Series: </b>{{$book->reeks}}</p>
+        <p><b>Series: </b>@if($book->series != NULL){{$book->_series->name}}@endif</p>
         <p><b>Number of pages: </b>{{$book->number_of_pages}}</p>
         <p><b>Author: </b>{{$book->author}}</p>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Serie;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
@@ -105,7 +106,8 @@ class BooksController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.edit', ['book' => $book]);
+        $series = Serie::orderBy('created_at', 'desc')->get();
+        return view('books.edit', ['book' => $book, 'series' => $series]);
     }
 
     /**

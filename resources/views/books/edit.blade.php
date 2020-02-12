@@ -37,10 +37,12 @@
                     <label class="input-group-text" for="seris">Series</label>
                 </div>
                 <select name="series" class="custom-select" id="series">
-                    <option selected>{{$book->series}}</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected value="{{$book->series}}">@if($book->series != NULL){{$book->_series->name}}@endif</option>
+                    @foreach($series as $serie)
+                        @if($serie->id != $book->series)
+                            <option value="{{$serie->id}}">{{$serie->name}}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
 

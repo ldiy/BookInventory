@@ -8,7 +8,7 @@ class Book extends Model
 {
     //
     protected $guarded = [];
-    public function series()
+    public function _series()
     {
         return $this->belongsTo('App\Serie', 'series');
     }
