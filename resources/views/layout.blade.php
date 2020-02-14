@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/0742b8f30e.js" crossorigin="anonymous"></script>
-
+    @yield('head')
     <title>Book Inventory</title>
 </head>
+<style>
+    @yield('style')
+</style>
 <body>
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <a class="navbar-brand">Book Inventory</a>

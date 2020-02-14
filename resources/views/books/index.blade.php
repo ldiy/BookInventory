@@ -1,7 +1,7 @@
 @extends('layout')
 @section('navbar_item')
     <li class="nav-item">
-        <a  style="color:green; " class="nav-link"href="{{url('/books/create')}}"><b>Add <i class="fas fa-plus"></i></b></a>
+        <a  style="color:green; " class="nav-link btn btn-outline-success"href="{{url('/books/create')}}"><b>Add book <i class="fas fa-plus"></i></b></a>
     </li>
 @endsection
 @section('content')

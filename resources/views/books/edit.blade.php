@@ -22,7 +22,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">ISBN</span>
                 </div>
-                <input name="isbn" type="text" value="{{$book->isbn}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <input name="isbn" type="number" value="{{$book->isbn}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
             </div>
 
             <div class="input-group input-group-sm mb-3">
@@ -34,7 +34,7 @@
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="seris">Series</label>
+                    <label class="input-group-text" for="series">Series</label>
                 </div>
                 <select name="series" class="custom-select" id="series">
                     <option selected value="{{$book->series}}">@if($book->series != NULL){{$book->_series->name}}@endif</option>
@@ -46,7 +46,7 @@
                 </select>
             </div>
 
-            <div class="input-group input-group-sm mb-3">
+            <div class="form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Number of pages</span>
                 </div>

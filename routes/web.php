@@ -20,7 +20,7 @@ Route::get('/', function () {
     return 'User '.$id;
 });*/
 
-
+Route::get('/test', function(){ return view('books.test');});
 /* Books */
 Route::get('/books', 'BooksController@index');
 Route::get('/books/create', 'BooksController@create');

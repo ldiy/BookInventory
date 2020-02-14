@@ -50,7 +50,8 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $series = Serie::orderBy('created_at', 'desc')->get();
+        return view('books.create', ['series' => $series]);
     }
 
 
@@ -72,12 +73,27 @@ class BooksController extends Controller
         $book = new Book;
 
         // Set all data
-        $book->title = $data['title'];
         $book->isbn = request('isbn');
-        $book->author = $data['Auteur'];
-        $book->number_of_pages = (int) filter_var($data["Aantal pagina's"], FILTER_SANITIZE_NUMBER_INT);
-        $book->cover_image_url = $data['cover_url'];
-        $book->publisher = $data['Uitgever'];
+        $book->series = request('series');
+
+        if(array_key_exists("title", $data))
+            $book->title = $data['title'];
+
+        if(array_key_exists("Auteur", $data))
+            $book->author = $data['Auteur'];
+
+        if(array_key_exists("Aantal pagina's", $data))
+            $book->number_of_pages = (int) filter_var($data["Aantal pagina's"], FILTER_SANITIZE_NUMBER_INT);    // Get numbers out of string
+
+        if(array_key_exists("Uitgever", $data))
+            $book->publisher = $data['Uitgever'];
+
+        if(array_key_exists("Aantal pagina's", $data))
+        {
+            if(substr(  $data['cover_url'], 0, 4 ) != "http")   // Check if url starts with 'http'
+                $data['cover_url'] = "https://www.zoekeenboek.nl/" .  $data['cover_url'];
+            $book->cover_image_url = $data['cover_url'];
+        }
 
         // Save
         $book->save();
