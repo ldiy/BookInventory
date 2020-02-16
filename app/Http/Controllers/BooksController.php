@@ -72,7 +72,7 @@ class BooksController extends Controller
         // Create a new book
         $book = new Book;
 
-        // Set all data
+        /* Set all data */
         $book->isbn = request('isbn');
         $book->series = request('series');
 

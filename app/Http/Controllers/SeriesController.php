@@ -21,6 +21,17 @@ class SeriesController extends Controller
     }
 
     /**
+     * Returns all series in Json.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        return Serie::orderBy('created_at', 'desc')->get();
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -53,7 +64,6 @@ class SeriesController extends Controller
      */
     public function show(Serie $serie)
     {
-        //$books = Book::where('series', $serie->id)->paginate(20);
         $books = $serie->books;
         return view('series.show',['series' => $serie, 'books' => $books]);
     }
@@ -93,13 +103,14 @@ class SeriesController extends Controller
      */
     public function destroy(Serie $serie)
     {
-        $books = $serie->books;
+        $books = $serie->books; // Find all books within this series
+        /* Remove all books */
         foreach ($books as $book)
         {
             Book::destroy($book->id);
         }
 
-        $serie->delete();
+        $serie->delete();   // Remove this series
         return redirect('/series');
     }
 }

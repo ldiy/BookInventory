@@ -13,9 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-//Route::get('/store', 'ModifyBookController@store');
-Route::get('info/{isbn}','BooksController@get_info_by_isbn');
+*/
+Route::get('create','BooksController@store');
+Route::get('list_series', 'SeriesController@list');
+Route::get('version', function (){return "BookInventory";});
