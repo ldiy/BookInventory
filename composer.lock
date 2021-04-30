@@ -5318,7 +5318,7 @@
         },
         {
             "name": "facade/ignition",
-            "version": "1.16.0",
+            "version": "1.16.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
